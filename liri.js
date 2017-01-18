@@ -23,8 +23,18 @@ if (command === 'my_tweets') {
 };
 	// spotify-this-song
 
-if (command === 'spotify-this-song' && typeof input == '')
-
+if (command === 'spotify-this-song' && typeof input == '') {
+	var request = require("request");
+	var track = 'i+want+it+that+way';
+	request("https://api.spotify.com/v1/search?q=" + track + "&type=track&market=US", function(error, response, body) {
+		if (!error && response.statusCode === 200) {
+			for (var i = 0; i < body.length; i++) {
+				console.log("Artist: " + JSON.parse(body[i]).arists);
+				console.log("Song: " + JSON.parse(body[i].))
+			}
+	})
+}
+	
 	// movie-this
 
 	// do-what-it-says
